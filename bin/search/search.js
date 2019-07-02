@@ -27,9 +27,9 @@ $(function() {
 
         $table.bootstrapTable('removeAll');
 
-        var keyword = $txt_keyword.val();
+        var keyword = $txt_keyword.val().trim();
 
-        if (keyword.trim().length > 0) {
+        if (keyword.length > 0) {
 
             $table.bootstrapTable('showLoading');
 
