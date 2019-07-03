@@ -105,10 +105,6 @@ $(function() {
         danMuTable.$table.bootstrapTable('resetView');
     });
 
-
-    // 初始化提示层
-    Common.initTooltip();
-
     // 初始化字体
     for (var i = 0; i < fontDatas.length; i++) {
         var font = fontDatas[i];

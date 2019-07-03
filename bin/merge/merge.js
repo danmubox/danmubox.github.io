@@ -23,7 +23,4 @@ $(function() {
 
             DanMuMerge.merge(danMus, updateData, mergeComplate);
         });
-
-    // 初始化提示层
-    Common.initTooltip();
 });
