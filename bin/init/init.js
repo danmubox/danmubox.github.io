@@ -91,6 +91,11 @@ function bornHtml() {
   						本站所提供的查询服务，所得结果来源于网络。其内容质量本站无法保证，需用户自行甄别。
   					</small>
   				</p>
+  				<p class="text-secondary" style="margin-top:-10px;">
+  					<small>
+  						©2019 Mr.Po. All rights reserved.
+  					</small>
+  				</p>
   			</div>
 		</footer>
 		<script type="text/javascript" src="bin/init/init-callback.min.js"></script>
