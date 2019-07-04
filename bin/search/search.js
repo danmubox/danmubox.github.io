@@ -6,11 +6,29 @@ $(function() {
 
     var $table = $('#table');
     var $ckb_copy = $("#ckb-copy");
+    var $main_form = $("#main-form");
 
     var key;
     var list; // 数组
     var repoMap = new Map(); //<仓库字符串,array<array<3>>>
     var fromEnums = ["bilibili", "优酷", "爱奇艺", "腾讯", "第一弹", "动画疯", "acfun"];
+
+    // 是否需要提示弹幕包
+    var is_tip_danmupkg = true;
+
+    function isTipDanMuPackage(name) {
+
+        if (is_tip_danmupkg && name.indexOf("[弹幕包]") == 0) {
+
+            is_tip_danmupkg = false;
+
+            var $alert_container = $("#alert-container");
+
+            var $about_danmu_pkg_content = $("#about-danmu-pkg-content").html().trim();
+
+            $alert_container.append($about_danmu_pkg_content);
+        }
+    }
 
     Common.cookieIfPresent(ENUM_COOKIE_PATH.SEARCH, function(cookie) {
         $ckb_copy.attr("checked", cookie.download_copy);
@@ -30,6 +48,8 @@ $(function() {
         var keyword = $txt_keyword.val().trim();
 
         if (keyword.length > 0) {
+
+            $main_form.attr("disabled", true);
 
             $table.bootstrapTable('showLoading');
 
@@ -122,8 +142,12 @@ $(function() {
 
     function doComplate(num, total) {
 
+        // 全部子仓库检索完毕
         if (num == total) {
+
             $table.bootstrapTable('hideLoading');
+
+            $main_form.attr("disabled", false);
         }
     }
 
@@ -135,14 +159,18 @@ $(function() {
 
             var cur = repoData[i];
 
+            var name = cur[0];
+
             // 将其转换为小写再进行比较
-            if (cur[0].toLowerCase().indexOf(keyword) > -1) {
+            if (name.toLowerCase().indexOf(keyword) > -1) {
+
+                isTipDanMuPackage(name);
 
                 // 原始下载地址
                 var url = "https://raw.githubusercontent.com/" + repo + "/master/" + cur[3] + ".7z";
 
                 rows.push({
-                    name: cur[0],
+                    name: name,
                     from: fromEnums[cur[2]],
                     length: cur[1],
                     operate: '<div class="btn-group"><button class="btn btn-success download">下载</button><button type="button" class="btn btn-success dropdown-toggle dropdown-toggle-split" data-toggle="dropdown"><span class="caret"></span></button><div class="dropdown-menu"><button class="dropdown-item btn download xl-download">迅雷下载</button></div></div>',
@@ -159,6 +187,8 @@ $(function() {
     }
 
     Common.fixTableHeight($table);
+
+
 });
 
 window.operateEvents = {

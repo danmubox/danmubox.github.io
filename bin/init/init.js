@@ -81,7 +81,13 @@ function bornHtml() {
 		        </ul>
 		    </div>
 		</nav>
-		<div class="container center"></div>
+		<div class="container center">
+			<div class="d-flex justify-content-center">
+			  <div class="spinner-border text-primary mt-5 mb-5" role="status">
+			    <span class="sr-only">Loading...</span>
+			  </div>
+			</div>
+		</div>
 		<footer class="navbar-fixed-bottom">
   			<div class="container">
   				<hr/>

@@ -17,6 +17,8 @@ $(function() {
         // 初始化提示层
         Common.initTooltip();
 
-        baiduTongJi();
+        if (item != "message") {
+            baiduTongJi();
+        }
     });
 });
