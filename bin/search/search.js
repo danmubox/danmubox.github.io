@@ -112,7 +112,7 @@ $(function() {
             } else {
 
                 $.ajax({
-                        url: 'https://raw.githubusercontent.com/' + repo + '/master/index'
+                        url: 'https://cdn.jsdelivr.net/gh/' + repo + '/index'
                     })
                     .done(function(data) {
 
@@ -167,7 +167,7 @@ $(function() {
                 isTipDanMuPackage(name);
 
                 // 原始下载地址
-                var url = "https://raw.githubusercontent.com/" + repo + "/master/" + cur[3] + ".7z";
+                var url = "https://cdn.jsdelivr.net/gh/" + repo + "/" + cur[3] + ".7z";
 
                 rows.push({
                     name: name,
