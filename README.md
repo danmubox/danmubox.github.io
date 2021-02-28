@@ -1,4 +1,6 @@
 ## 弹幕盒子
 支持搜索、合并、转换 弹幕文件。
 
-你可以通过此链接，进行访问：[https://danmubox.github.io](https://danmubox.github.io)
+直接访问：[网站](https://danmubox.github.io)
+
+查看源码：[源码](danmubox-develop)
